@@ -6,12 +6,31 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct WaterReminderApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+// AppDelegate to handle UIApplicationDelegate responsibilities,
+// such as requesting notification permissions.
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Request notification permissions
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                print("Notifications permission granted.")
+            } else if let error = error {
+                print("Notifications permission denied because: \(error.localizedDescription)")
+            }
+        }
+        return true
     }
 }
