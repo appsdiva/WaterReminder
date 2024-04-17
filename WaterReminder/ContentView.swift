@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var selectedTime = Date()
     @State private var reminders: [Date] = []
     
-    let moonGray = Color(white: 0.9, opacity: 0.5)
+    let moonGray = Color(white: 0.9, opacity: 0.6)
     
     let gradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .bottomLeading, endPoint: .bottomTrailing)
     
@@ -21,6 +21,7 @@ struct ContentView: View {
                 DatePicker("Select Reminder Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .padding(20)
+                    .fontWeight(.semibold)
                 
                 Button("Add Reminder") {
                     addReminder()
@@ -37,19 +38,14 @@ struct ContentView: View {
                             
                     }
                     .onDelete(perform: deleteReminder)
-                    
-                    
                 }
-                
-                //.cornerRadius(40)
-                
-                
             }
             .background(moonGray)
             .cornerRadius(40)
             .padding()
             .navigationTitle("Drink Water Reminders")
             .background(gradient)
+            .fontWeight(.semibold)
 //            .toolbar {
 //                EditButton()
 //            }
