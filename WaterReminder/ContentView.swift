@@ -11,38 +11,37 @@ struct ContentView: View {
     @State private var selectedTime = Date()
     @State private var reminders: [Date] = []
     
-    let moonGray = Color(white: 0.9, opacity: 0.7)
+    let moonGray = Color(white: 0.9, opacity: 0.5)
     
-    let gradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .bottomLeading, endPoint: .bottomTrailing)
     
     var body: some View {
         NavigationView {
             VStack {
                 DatePicker("Select Reminder Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    .padding()
+                    .padding(20)
                 
                 Button("Add Reminder") {
                     addReminder()
                 }
                 .padding()
-                .background(.black)
+                .background(gradient)
                 .foregroundColor(.white)
                 .cornerRadius(15)
                 
                 List {
                     ForEach(reminders, id: \.self) { reminder in
                         Text("\(reminder, formatter: itemFormatter)")
-                        
+                            .listRowBackground(gradient)
                             
                     }
                     .onDelete(perform: deleteReminder)
                     
                     
                 }
-                .cornerRadius(40)
                 
-                //.listRowBackground(.black)
+                //.cornerRadius(40)
                 
                 
             }
