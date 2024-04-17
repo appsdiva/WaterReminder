@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AudioToolbox
 
 struct ContentView: View {
     @State private var selectedTime = Date()
@@ -72,6 +73,10 @@ struct ContentView: View {
         }
     }
     
+    func vibratePhone() {
+        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
+    
     func scheduleNotification(for time: Date) {
         // Implement the notification scheduling logic here.
         let content = UNMutableNotificationContent()
@@ -85,10 +90,13 @@ struct ContentView: View {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                } else {
+                    print("Notification scheduled!")
+                    self.vibratePhone() // Optionally ensure vibration at the point of scheduling
+                }
             }
-        }
     }
 }
 
