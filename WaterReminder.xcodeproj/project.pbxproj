@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B2082BD183E900B82D58 /* Reminder.swift */; };
 		5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */; };
 		5BB80C0C2BAB7F3B007E8C81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */; };
 		5BB80C0E2BAB7F3D007E8C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB80C0D2BAB7F3D007E8C81 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B64B2082BD183E900B82D58 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		5BB80C062BAB7F3B007E8C81 /* WaterReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderApp.swift; sourceTree = "<group>"; };
 		5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
+				5B64B2082BD183E900B82D58 /* Reminder.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				5BB80C0D2BAB7F3D007E8C81 /* Assets.xcassets */,
 				5BB80C0F2BAB7F3D007E8C81 /* WaterReminder.entitlements */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */,
 				5BB80C0C2BAB7F3B007E8C81 /* ContentView.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
 			);
