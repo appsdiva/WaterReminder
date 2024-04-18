@@ -12,7 +12,7 @@ struct ReminderView: View {
 
     var body: some View {
         HStack {
-            Text("\(reminder.time, formatter: itemFormatter)")
+            Text("\(reminder.time, formatter: DateFormatter.itemFormatter)")
                 .font(.headline)
                 .padding(.leading)
             
@@ -44,9 +44,3 @@ struct ReminderView: View {
     }
 }
 
-
-struct ReminderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReminderView()
-    }
-}
