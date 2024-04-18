@@ -38,8 +38,9 @@ struct ReminderView: View {
                     notificationManager.cancelNotification(for: reminder)
                 }
             }
-            .toggleStyle(SwitchToggleStyle(tint: .black))
-            .padding(.trailing)
+//            .toggleStyle(SwitchToggleStyle(tint: .black))
+            .toggleStyle(ColoredToggleStyle(onColor: .black, offColor: .gray, thumbColor: .white))
+                .padding(.trailing)
         }
         .padding(30)
         .background(alarmcolor.opacity(0.7))

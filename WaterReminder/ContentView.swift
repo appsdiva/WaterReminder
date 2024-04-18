@@ -13,23 +13,26 @@ struct ContentView: View {
 
     let moonGray = Color(white: 0.9, opacity: 0.6)
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
+    let gradient2 = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .top, endPoint: .bottom)
+    let alarmblack = LinearGradient(gradient: Gradient(colors: [Color.blue, Color("darkblue")]), startPoint: .top, endPoint: .bottom)
     
     var body: some View {
         NavigationView {
-            VStack {
-                DatePicker("Select Reminder Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+            VStack(spacing: 20) {
+                DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
-                    .padding()
-                    .background(gradient)
-                    .cornerRadius(15)
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
+                    .background(gradient2)
+                    .cornerRadius(55)
+                    .padding(.horizontal, 20)
+                    .foregroundColor(.black)
+                    .font(.title3)
                 
                 Button("Add Reminder") {
                     addReminder()
                 }
                 .padding()
-                .background(gradient)
+                .background(.black)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
                 .cornerRadius(15)
                 .padding(.horizontal)
@@ -39,15 +42,14 @@ struct ContentView: View {
                         ForEach($reminders) { $reminder in
                             ReminderView(reminder: $reminder)
                                 .cornerRadius(15)
-                                .shadow(radius: 5)
+                                .shadow(radius: 10)
                                 .padding(.horizontal)
                         }
                     }
                 }
             }
             .navigationTitle("Water Reminders")
-            .navigationBarTitleDisplayMode(.inline)
-           
+            .navigationBarTitleDisplayMode(.large)
             .background(gradient.edgesIgnoringSafeArea(.all))
         }
     }

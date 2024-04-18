@@ -13,19 +13,21 @@ struct ColoredToggleStyle: ToggleStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         HStack {
-            configuration.label
             Spacer()
-            RoundedRectangle(cornerRadius: 16)
-                .fill(configuration.isOn ? onColor : offColor)
-                .frame(width: 51, height: 31)
-                .overlay(
-                    Circle()
-                        .fill(thumbColor)
-                        .padding(2)
-                        .frame(width: 31, height: 31, alignment: configuration.isOn ? .trailing : .leading)
-                        .animation(Animation.linear(duration: 0.1), value: configuration.isOn)
-                )
-                .onTapGesture { configuration.isOn.toggle() }
+            ZStack(alignment: configuration.isOn ? .trailing : .leading) {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(configuration.isOn ? onColor : offColor)
+                    .frame(width: 51, height: 31)
+                Circle()
+                    .fill(thumbColor)
+                    .frame(width: 29, height: 29)
+                    .padding(.all, 1)
+            }
+            .onTapGesture { configuration.isOn.toggle() }
+            Spacer()
         }
+        .frame(width: 51, height: 31)
+        .animation(Animation.linear(duration: 0.2), value: configuration.isOn)
     }
 }
+
