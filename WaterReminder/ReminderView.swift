@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ReminderView: View {
     @Binding var reminder: Reminder
+    private var notificationManager = NotificationManager.shared
+    
+    // Explicit public initializer
+        public init(reminder: Binding<Reminder>) {
+            _reminder = reminder
+        }
 
     var body: some View {
         HStack {
@@ -24,23 +30,22 @@ struct ReminderView: View {
             .labelsHidden()
             .onChange(of: reminder.isActive) { newValue in
                 if newValue {
-                    scheduleNotification(for: reminder)
+                    notificationManager.scheduleNotification(for: reminder)
                 } else {
-                    cancelNotification(for: reminder)
+                    notificationManager.cancelNotification(for: reminder)
                 }
             }
             .toggleStyle(SwitchToggleStyle(tint: .blue))
             .padding(.trailing)
         }
-        .padding()
-    }
-    
-    private func scheduleNotification(for reminder: Reminder) {
-        // The existing scheduling logic from ContentView goes here.
-    }
-    
-    private func cancelNotification(for reminder: Reminder) {
-        // The existing cancel logic from ContentView goes here.
+        .padding(40)
     }
 }
+
+struct ReminderView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReminderView(reminder: .constant(Reminder(time: Date(), isActive: true)))
+    }
+}
+
 
