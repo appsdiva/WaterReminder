@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTime = Date()
     @State private var reminders: [Reminder] = []
+    
+    private var notificationManager = NotificationManager.shared
 
     let moonGray = Color(white: 0.9, opacity: 0.6)
     let lightGray = Color(white: 0.95, opacity: 1)
@@ -50,34 +52,11 @@ struct ContentView: View {
         .navigationTitle("Water Reminders")
     }
     
-    private func addReminder() {
-        withAnimation {
+    func addReminder() {
             let newReminder = Reminder(time: selectedTime, isActive: true)
             reminders.append(newReminder)
-            scheduleNotification(for: newReminder)
+            notificationManager.addReminder(newReminder)
         }
-    }
-    
-    private func scheduleNotification(for reminder: Reminder) {
-        let content = UNMutableNotificationContent()
-        content.title = "Time to Drink Water"
-        content.body = "Stay hydrated! It's time to drink some water."
-        content.sound = UNNotificationSound.default
-
-        let targetDate = Calendar.current.dateComponents([.hour, .minute], from: reminder.time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-        let request = UNNotificationRequest(identifier: reminder.id.uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    private func cancelNotification(for reminder: Reminder) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [reminder.id.uuidString])
-    }
 }
 
 //withAnimation {

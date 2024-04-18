@@ -12,13 +12,22 @@ class NotificationManager {
     
     static let shared = NotificationManager() // Singleton instance if needed.
     
+    
+    var reminders: [Reminder] = []
+    
     private init() {} // Private initializer to ensure singleton usage.
     
-    func addReminder(reminder: Reminder, to reminders: inout [Reminder]) {
-        let newReminder = Reminder(time: reminder.time, isActive: true)
-        reminders.append(newReminder)
-        scheduleNotification(for: newReminder)
-    }
+    func addReminder(_ reminder: Reminder) {
+            reminders.append(reminder)
+            // Add any additional logic to manage reminders here
+            // such as registering the reminder with iOS notifications
+        }
+    
+//    func addReminder(reminder: Reminder, to reminders: inout [Reminder]) {
+//        let newReminder = Reminder(time: reminder.time, isActive: true)
+//        reminders.append(newReminder)
+//        scheduleNotification(for: newReminder)
+//    }
 
     
     func vibratePhone() {
