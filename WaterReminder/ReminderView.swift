@@ -38,7 +38,8 @@ struct ReminderView: View {
             .toggleStyle(SwitchToggleStyle(tint: .blue))
             .padding(.trailing)
         }
-        .padding(35)
+        .padding(30)
+        .background(.white)
     }
     
    
