@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var reminders: [Reminder] = []
 
     let moonGray = Color(white: 0.9, opacity: 0.6)
-    let gradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .leading, endPoint: .trailing)
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
     
     var body: some View {
         NavigationView {

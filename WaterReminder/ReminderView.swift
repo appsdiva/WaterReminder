@@ -15,11 +15,14 @@ struct ReminderView: View {
         public init(reminder: Binding<Reminder>) {
             _reminder = reminder
         }
+    
+    let alarmcolor = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottom, endPoint: .top)
 
     var body: some View {
         HStack {
             Text("\(reminder.time, formatter: DateFormatter.itemFormatter)")
-                .font(.headline)
+                .font(.system(size: 40, weight: .bold, design: .default))
+                .foregroundColor(.white)
                 .padding(.leading)
             
             Spacer()
@@ -35,11 +38,11 @@ struct ReminderView: View {
                     notificationManager.cancelNotification(for: reminder)
                 }
             }
-            .toggleStyle(SwitchToggleStyle(tint: .blue))
+            .toggleStyle(SwitchToggleStyle(tint: .black))
             .padding(.trailing)
         }
         .padding(30)
-        .background(.white)
+        .background(alarmcolor.opacity(0.7))
     }
     
    
