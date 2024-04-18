@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Reminder: Identifiable, Equatable {
-    let id = UUID()
+struct Reminder: Codable, Identifiable {
+    var id: UUID = UUID()
     var time: Date
     var isActive: Bool = true
 }
