@@ -6,111 +6,79 @@
 //
 
 import SwiftUI
-import AudioToolbox
 
 struct ContentView: View {
     @State private var selectedTime = Date()
-    @State private var reminders: [Date] = []
-    
+    @State private var reminders: [Reminder] = []
+
     let moonGray = Color(white: 0.9, opacity: 0.6)
-    
-    let gradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .bottomLeading, endPoint: .bottomTrailing)
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
+    let gradient2 = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .top, endPoint: .bottom)
+    let alarmblack = LinearGradient(gradient: Gradient(colors: [Color.blue, Color("darkblue")]), startPoint: .top, endPoint: .bottom)
     
     var body: some View {
         NavigationView {
-            VStack {
-                DatePicker("Select Reminder Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                    .padding(20)
-                    .fontWeight(.semibold)
+            VStack(spacing: 20) {
+                DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(WheelDatePickerStyle())
+                    .background(gradient2)
+                    .cornerRadius(55)
+                    .padding(.horizontal, 20)
+                    .foregroundColor(.black)
+                    .font(.title3)
                 
                 Button("Add Reminder") {
                     addReminder()
                 }
                 .padding()
-                .background(gradient)
+                .background(.black)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
                 .cornerRadius(15)
+                .padding(.horizontal)
                 
-                List {
-                    ForEach(reminders, id: \.self) { reminder in
-                        Text("\(reminder, formatter: itemFormatter)")
-                            .listRowBackground(gradient)
-                            
+                ScrollView {
+                    VStack(spacing: 12) {
+                        ForEach($reminders) { $reminder in
+                            ReminderView(reminder: $reminder)
+                                .cornerRadius(15)
+                                .shadow(radius: 10)
+                                .padding(.horizontal)
+                        }
                     }
-                    .onDelete(perform: deleteReminder)
                 }
             }
-            .background(moonGray)
-            .cornerRadius(40)
-            .padding()
-            .navigationTitle("Drink Water Reminders")
-            .background(gradient)
-            .fontWeight(.semibold)
-//            .toolbar {
-//                EditButton()
-//            }
+            .navigationTitle("Water Reminders")
+            .navigationBarTitleDisplayMode(.large)
+            .background(gradient.edgesIgnoringSafeArea(.all))
         }
-        .backgroundStyle(Color.purple)
     }
-        
-        
-    
+
     private func addReminder() {
         withAnimation {
-            reminders.append(selectedTime)
-            scheduleNotification(for: selectedTime)
+            let newReminder = Reminder(time: selectedTime, isActive: true)
+            reminders.append(newReminder)
+            // Assuming NotificationManager can schedule notifications
+            NotificationManager.shared.scheduleNotification(for: newReminder)
         }
-        
-    }
-    
-    private func deleteReminder(at offsets: IndexSet) {
-        withAnimation {
-            offsets.forEach { index in
-                // Here, you could also cancel the notification if you keep a reference to it.
-                reminders.remove(at: index)
-            }
-        }
-    }
-    
-    func vibratePhone() {
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-    }
-    
-    func scheduleNotification(for time: Date) {
-        // Implement the notification scheduling logic here.
-        let content = UNMutableNotificationContent()
-        content.title = "Time to Drink Water"
-        content.body = "Stay hydrated! It's time to drink some water."
-        content.sound = UNNotificationSound.default
-        
-        let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error)")
-                } else {
-                    print("Notification scheduled!")
-                    self.vibratePhone() // Optionally ensure vibration at the point of scheduling
-                }
-            }
     }
 }
 
-// Helper to format the date displayed in the list.
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .none
-    formatter.timeStyle = .short
-    return formatter
-}()
 
+//func addReminder() {
+//        let newReminder = Reminder(time: selectedTime, isActive: true)
+//        reminders.append(newReminder)
+//        notificationManager.addReminder(newReminder)
+//    }
+
+//withAnimation {
+//    NotificationManager.shared.addReminder(reminder: newReminder, to: &reminders)
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
+

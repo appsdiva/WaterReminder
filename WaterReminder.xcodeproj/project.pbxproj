@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */; };
+		5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */; };
+		5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B2082BD183E900B82D58 /* Reminder.swift */; };
+		5B64B20B2BD1854200B82D58 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B20A2BD1854200B82D58 /* ReminderView.swift */; };
+		5B64B20D2BD1891100B82D58 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B20C2BD1891100B82D58 /* DateFormatter.swift */; };
+		5B64B20F2BD18D1300B82D58 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */; };
 		5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */; };
 		5BB80C0C2BAB7F3B007E8C81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */; };
 		5BB80C0E2BAB7F3D007E8C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB80C0D2BAB7F3D007E8C81 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleStyle.swift; sourceTree = "<group>"; };
+		5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStorage.swift; sourceTree = "<group>"; };
+		5B64B2082BD183E900B82D58 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		5B64B20A2BD1854200B82D58 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		5B64B20C2BD1891100B82D58 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5BB80C062BAB7F3B007E8C81 /* WaterReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderApp.swift; sourceTree = "<group>"; };
 		5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
+				5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */,
+				5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
+				5B64B20A2BD1854200B82D58 /* ReminderView.swift */,
+				5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */,
+				5B64B20C2BD1891100B82D58 /* DateFormatter.swift */,
+				5B64B2082BD183E900B82D58 /* Reminder.swift */,
 				5BB80C0D2BAB7F3D007E8C81 /* Assets.xcassets */,
 				5BB80C0F2BAB7F3D007E8C81 /* WaterReminder.entitlements */,
 				5BB80C102BAB7F3D007E8C81 /* Preview Content */,
@@ -139,8 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B64B20F2BD18D1300B82D58 /* NotificationManager.swift in Sources */,
+				5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */,
 				5BB80C0C2BAB7F3B007E8C81 /* ContentView.swift in Sources */,
+				5B64B20B2BD1854200B82D58 /* ReminderView.swift in Sources */,
+				5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
+				5B64B20D2BD1891100B82D58 /* DateFormatter.swift in Sources */,
+				5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
