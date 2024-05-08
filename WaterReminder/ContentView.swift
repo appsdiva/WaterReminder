@@ -19,13 +19,15 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
-                    .background(gradient2)
+                    .background(.white.opacity(0.9))
                     .cornerRadius(55)
                     .padding(.horizontal, 20)
                     .foregroundColor(.black)
-                    .font(.title3)
+                    //.font(.title3)
+                    .clipShape(Circle())
+                    .shadow(radius: 30)
                 
                 Button("Add Reminder") {
                     addReminder()
@@ -38,17 +40,17 @@ struct ContentView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    VStack(spacing: 12) {
+                    VStack(spacing: 15) {
                         ForEach($reminders) { $reminder in
                             ReminderView(reminder: $reminder)
-                                .cornerRadius(15)
+                                .cornerRadius(20)
                                 .shadow(radius: 10)
-                                .padding(.horizontal)
+                                .padding(.horizontal, 40)
                         }
                     }
                 }
             }
-            .navigationTitle("Water Reminders")
+            .navigationTitle("Drink Water")
             .navigationBarTitleDisplayMode(.large)
             .background(gradient.edgesIgnoringSafeArea(.all))
         }

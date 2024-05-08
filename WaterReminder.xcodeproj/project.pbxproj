@@ -65,10 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
-				5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */,
-				5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				5B64B20A2BD1854200B82D58 /* ReminderView.swift */,
+				5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */,
+				5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */,
 				5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */,
 				5B64B20C2BD1891100B82D58 /* DateFormatter.swift */,
 				5B64B2082BD183E900B82D58 /* Reminder.swift */,

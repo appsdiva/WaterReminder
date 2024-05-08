@@ -21,8 +21,8 @@ struct ReminderView: View {
     var body: some View {
         HStack {
             Text("\(reminder.time, formatter: DateFormatter.itemFormatter)")
-                .font(.system(size: 40, weight: .bold, design: .default))
-                .foregroundColor(.white)
+                .font(.system(size: 35, weight: .semibold, design: .default))
+                .foregroundColor(.black)
                 .padding(.leading)
             
             Spacer()
@@ -42,8 +42,8 @@ struct ReminderView: View {
             .toggleStyle(ColoredToggleStyle(onColor: .black, offColor: .gray, thumbColor: .white))
                 .padding(.trailing)
         }
-        .padding(30)
-        .background(alarmcolor.opacity(0.7))
+        .padding(12)
+        .background(.white.opacity(0.7))
     }
     
    
