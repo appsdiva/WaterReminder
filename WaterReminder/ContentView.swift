@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTime = Date()
     @State private var reminders: [Reminder] = []
+    
+    init() {
+            _reminders = State(initialValue: AlarmStorage.shared.loadAlarms())
+        }
+
 
     let moonGray = Color(white: 0.9, opacity: 0.6)
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
@@ -62,20 +67,10 @@ struct ContentView: View {
             reminders.append(newReminder)
             // Assuming NotificationManager can schedule notifications
             NotificationManager.shared.scheduleNotification(for: newReminder)
+            AlarmStorage.shared.saveAlarms(reminders)
         }
     }
 }
-
-
-//func addReminder() {
-//        let newReminder = Reminder(time: selectedTime, isActive: true)
-//        reminders.append(newReminder)
-//        notificationManager.addReminder(newReminder)
-//    }
-
-//withAnimation {
-//    NotificationManager.shared.addReminder(reminder: newReminder, to: &reminders)
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

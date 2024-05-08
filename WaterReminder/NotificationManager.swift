@@ -23,12 +23,6 @@ class NotificationManager {
             // such as registering the reminder with iOS notifications
         }
     
-//    func addReminder(reminder: Reminder, to reminders: inout [Reminder]) {
-//        let newReminder = Reminder(time: reminder.time, isActive: true)
-//        reminders.append(newReminder)
-//        scheduleNotification(for: newReminder)
-//    }
-
     
     func vibratePhone() {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
@@ -51,7 +45,7 @@ class NotificationManager {
                         print("Error scheduling notification: \(error)")
                     } else {
                         print("Notification scheduled!")
-                        self.vibratePhone() // Optionally ensure vibration at the point of scheduling
+                        //self.vibratePhone() // Optionally ensure vibration at the point of scheduling
                     }
                 }
         }
