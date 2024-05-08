@@ -7,7 +7,9 @@
 import Foundation
 
 struct Reminder: Codable, Identifiable {
-    var id = UUID()
+    var id: UUID = UUID()
     var time: Date
-    var isActive: Bool = true
+    var isActive: Bool
+    var repeatDays: [Bool] = Array(repeating: false, count: 7)  // Sunday to Saturday
 }
+
