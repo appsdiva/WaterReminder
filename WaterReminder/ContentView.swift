@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTime = Date()
     @State private var reminders: [Reminder] = []
+    @State private var repeatDays = Array(repeating: false, count: 7)
+        let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
     
     init() {
             _reminders = State(initialValue: AlarmStorage.shared.loadAlarms())
@@ -33,6 +36,20 @@ struct ContentView: View {
                     //.font(.title3)
                     .clipShape(Circle())
                     .shadow(radius: 30)
+                HStack {
+                                    ForEach(0..<daysOfWeek.count, id: \.self) { index in
+                                        Button(action: {
+                                            repeatDays[index].toggle()
+                                        }) {
+                                            Text(daysOfWeek[index])
+                                                .fontWeight(repeatDays[index] ? .bold : .regular)
+                                                .foregroundColor(repeatDays[index] ? .white : .black)
+                                                .padding(10)
+                                                .background(repeatDays[index] ? Color.blue : Color.gray.opacity(0.5))
+                                                .cornerRadius(20)
+                                        }
+                                    }
+                                }
                 
                 Button("Add Reminder") {
                     addReminder()
