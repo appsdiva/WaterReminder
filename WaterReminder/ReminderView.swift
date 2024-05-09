@@ -47,15 +47,17 @@ struct ReminderView: View {
                     .padding(.trailing)
                 }
 
-                // Days of the week
+                // Days of the week - only show if set to repeat
                 HStack {
                     ForEach(0..<daysOfWeek.count, id: \.self) { index in
-                        Text(daysOfWeek[index])
-                            .fontWeight(reminder.repeatDays[index] ? .bold : .regular)
-                            .foregroundColor(reminder.repeatDays[index] ? .white : .gray)
-                            .padding(.horizontal, 4)
-                            .background(reminder.repeatDays[index] ? Color.blue : Color.clear)
-                            .cornerRadius(10)
+                        if reminder.repeatDays[index] {
+                            Text(daysOfWeek[index])
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 4)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
                     }
                 }
 
