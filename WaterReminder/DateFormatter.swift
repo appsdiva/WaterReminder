@@ -8,11 +8,17 @@
 import Foundation
 
 extension DateFormatter {
-    static let itemFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        return formatter
-    }()
+//    static let itemFormatter: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .none
+//        formatter.timeStyle = .short
+//        return formatter
+//    }()
+    
+    static let timeFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            return formatter
+        }()
 }
 
