@@ -34,6 +34,13 @@ class NotificationManager {
             content.title = "Time to Drink Water"
             content.body = "Stay hydrated! It's time to drink some water."
             content.sound = UNNotificationSound.default
+        
+        // Schedule notification for each active day
+        for (index, shouldRepeat) in reminder.repeatDays.enumerated() {
+            if shouldRepeat {
+                scheduleWeeklyNotification(for: reminder, dayOfWeek: index + 1, content: content)
+            }
+        }
     
         let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: reminder.time)
             let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
@@ -55,3 +62,17 @@ class NotificationManager {
     }
 }
 
+    private func scheduleWeeklyNotification(for reminder: Reminder, dayOfWeek: Int, content: UNMutableNotificationContent) {
+            var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: reminder.time)
+            dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                }
+            }
+        }
