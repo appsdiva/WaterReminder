@@ -21,69 +21,70 @@ struct ReminderView: View {
     let alarmcolor = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottom, endPoint: .top)
     
     var body: some View {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    // Display the formatted time
-                    Text(reminder.time, formatter: DateFormatter.timeFormatter)
-                        .font(.system(size: 35, weight: .semibold))
-                        .foregroundColor(.black)
+         VStack(alignment: .leading, spacing: 8) {
+             HStack {
+                 // Display the formatted time
+                 Text(reminder.time, formatter: DateFormatter.timeFormatter)
+                     .font(.system(size: 35, weight: .semibold))
+                     .foregroundColor(.white)
 
-                    Spacer()
+                 Spacer()
 
-                    // Toggle for turning the reminder on or off
-                    Toggle(isOn: $reminder.isActive) {
-                        Text(reminder.isActive ? "On" : "Off")
-                            .foregroundColor(.gray)
-                    }
-                    .labelsHidden()
-                    .onChange(of: reminder.isActive) { newValue in
-                        if newValue {
-                            notificationManager.scheduleNotification(for: reminder)
-                        } else {
-                            notificationManager.cancelNotification(for: reminder)
-                        }
-                    }
-                    .toggleStyle(ColoredToggleStyle(onColor: .blue, offColor: .gray, thumbColor: .white))
-                    .padding(.trailing)
-                }
+                 // Stack for toggle and three-dot menu
+                 VStack {
+                     // Toggle for turning the reminder on or off
+                     Toggle(isOn: $reminder.isActive) {
+                         Text(reminder.isActive ? "On" : "Off")
+                             .foregroundColor(.gray)
+                     }
+                     .labelsHidden()
+                     .onChange(of: reminder.isActive) { newValue in
+                         if newValue {
+                             notificationManager.scheduleNotification(for: reminder)
+                         } else {
+                             notificationManager.cancelNotification(for: reminder)
+                         }
+                     }
+                     .toggleStyle(ColoredToggleStyle(onColor: .black, offColor: .gray, thumbColor: .white))
 
-                // Days of the week - only show if set to repeat
-                HStack {
-                    ForEach(0..<daysOfWeek.count, id: \.self) { index in
-                        if reminder.repeatDays[index] {
-                            Text(daysOfWeek[index])
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 4)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                    }
-                }
+                     // Three-dot icon for more options
+                     Button(action: {
+                         // Action for editing options
+                     }) {
+                         Image(systemName: "ellipsis")
+                             .imageScale(.large)
+                             .foregroundColor(.white)
+                             .padding(.top, 8)
+                     }
+                 }
+             }
 
-                // Three-dot icon for more options
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        // Action for editing options
-                    }) {
-                        Image(systemName: "ellipsis")
-                            .imageScale(.large)
-                            .foregroundColor(.black)
-                    }
-                }
-            }
-            .padding()
-            .background(Color.white.opacity(0.7))  // Top part background
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.blue, lineWidth: 2)
-            )
-            .background(Color("BottomColor").opacity(0.7))  // Different color for the bottom part
-            .cornerRadius(16)
-            .padding(.horizontal)
-        }
-
+             // Days of the week - only show if set to repeat
+             HStack {
+                 ForEach(0..<daysOfWeek.count, id: \.self) { index in
+                     if reminder.repeatDays[index] {
+                         Text(daysOfWeek[index])
+                             .fontWeight(.bold)
+                             .foregroundColor(.white)
+                             .padding(.horizontal, 4)
+                             .background(Color.blue)
+                             .cornerRadius(10)
+                     }
+                 }
+             }
+         }
+         .padding()
+         .background(LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                     .cornerRadius(15)
+         //.background(Color.purple)  // Top part background
+//         .overlay(
+//             RoundedRectangle(cornerRadius: 16)
+//                 .stroke(Color.blue, lineWidth: 8)
+//         )
+         //.background(Color("mediumblue").opacity(0.7))  // Different color for the bottom part
+         .cornerRadius(16)
+         .padding(.horizontal)
+     }
 //    var body: some View {
 //        HStack {
 //            Text("\(reminder.time, formatter: DateFormatter.itemFormatter)")

@@ -67,14 +67,15 @@ struct ContentView: View {
                             ReminderView(reminder: $reminder)
                                 .cornerRadius(20)
                                 .shadow(radius: 10)
-                                .padding(.horizontal, 40)
+                                .padding(.horizontal, 30)
                         }
                     }
                 }
             }
             .navigationTitle("Drink Water")
             .navigationBarTitleDisplayMode(.large)
-            .background(gradient.edgesIgnoringSafeArea(.all))
+            //.background(gradient.edgesIgnoringSafeArea(.all))
+            
         }
     }
 
