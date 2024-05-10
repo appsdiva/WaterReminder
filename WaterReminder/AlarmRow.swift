@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct AlarmRow: View {
+    var time: String
+    var isAM: Bool
+    var isActive: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(time)
+                .font(.system(size: 35, weight: .semibold))
+                .foregroundColor(isActive ? .white : .gray)
+            Spacer()
+            Text(isAM ? "AM" : "PM")
+                .foregroundColor(.white)
+                .opacity(0.7)
+            Toggle("", isOn: .constant(isActive))
+                .toggleStyle(SwitchToggleStyle(tint: Color("darkblue")))
+        }
+        .padding(.horizontal)
     }
 }
 
+
 #Preview {
-    AlarmRow()
+    AlarmRow(time: "7:00", isAM: true, isActive: false)
 }

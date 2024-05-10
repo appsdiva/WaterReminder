@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ClockView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("9:41 AM") // Placeholder for the clock
+            .font(.largeTitle)
+            .foregroundColor(.black)
     }
 }
 

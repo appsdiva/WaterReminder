@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		018C18F62BEE7B8400EB7627 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F52BEE7B8400EB7627 /* AddReminderView.swift */; };
+		018C18F82BEE8A4500EB7627 /* AlarmRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F72BEE8A4500EB7627 /* AlarmRow.swift */; };
+		018C18FA2BEE8B2D00EB7627 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F92BEE8B2D00EB7627 /* ClockView.swift */; };
+		018C18FC2BEE939F00EB7627 /* VerticalEllipsisIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18FB2BEE939F00EB7627 /* VerticalEllipsisIcon.swift */; };
 		5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */; };
 		5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */; };
 		5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B2082BD183E900B82D58 /* Reminder.swift */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		018C18F52BEE7B8400EB7627 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		018C18F72BEE8A4500EB7627 /* AlarmRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRow.swift; sourceTree = "<group>"; };
+		018C18F92BEE8B2D00EB7627 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		018C18FB2BEE939F00EB7627 /* VerticalEllipsisIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalEllipsisIcon.swift; sourceTree = "<group>"; };
 		5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleStyle.swift; sourceTree = "<group>"; };
 		5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStorage.swift; sourceTree = "<group>"; };
 		5B64B2082BD183E900B82D58 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -66,7 +74,11 @@
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
+				018C18F72BEE8A4500EB7627 /* AlarmRow.swift */,
+				018C18F92BEE8B2D00EB7627 /* ClockView.swift */,
+				018C18F52BEE7B8400EB7627 /* AddReminderView.swift */,
 				5B64B20A2BD1854200B82D58 /* ReminderView.swift */,
+				018C18FB2BEE939F00EB7627 /* VerticalEllipsisIcon.swift */,
 				5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */,
 				5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */,
 				5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */,
@@ -157,12 +169,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				018C18F82BEE8A4500EB7627 /* AlarmRow.swift in Sources */,
 				5B64B20F2BD18D1300B82D58 /* NotificationManager.swift in Sources */,
 				5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */,
+				018C18FA2BEE8B2D00EB7627 /* ClockView.swift in Sources */,
 				5BB80C0C2BAB7F3B007E8C81 /* ContentView.swift in Sources */,
 				5B64B20B2BD1854200B82D58 /* ReminderView.swift in Sources */,
+				018C18F62BEE7B8400EB7627 /* AddReminderView.swift in Sources */,
 				5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
+				018C18FC2BEE939F00EB7627 /* VerticalEllipsisIcon.swift in Sources */,
 				5B64B20D2BD1891100B82D58 /* DateFormatter.swift in Sources */,
 				5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */,
 			);

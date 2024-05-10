@@ -12,7 +12,7 @@ struct VerticalEllipsisIcon: View {
         VStack(spacing: 3) {
             ForEach(0..<3, id: \.self) { _ in
                 Circle()
-                    .frame(width: 5, height: 5)
+                    .frame(width: 8, height: 8)
                     .foregroundColor(.white)
             }
         }
@@ -20,5 +20,5 @@ struct VerticalEllipsisIcon: View {
 }
 
 #Preview {
-    VerticleEllipsisIcon()
+    VerticalEllipsisIcon()
 }
