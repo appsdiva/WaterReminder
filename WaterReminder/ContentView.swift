@@ -155,6 +155,9 @@ struct ContentView: View {
         let isAM = Calendar.current.component(.hour, from: selectedDate) < 12
         let newAlarm = Alarm(time: selectedDate, isAM: isAM, isActive: true, repeatDays: [false, true, false, true, false, true, false])
         alarmManager.addAlarm(newAlarm)
+        
+        AlarmManager.shared.scheduleNotification(for: newAlarm)
+        AlarmStorage.shared.saveAlarms(alarmManager.alarms)
        
     }
     
