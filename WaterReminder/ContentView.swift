@@ -40,8 +40,9 @@ struct ContentView: View {
     var body: some View {
             NavigationView {
                 ZStack {
-                    Color(red: 0.53, green: 0.81, blue: 0.92)
-                        .edgesIgnoringSafeArea(.all)
+                    //Color(red: 0.53, green: 0.81, blue: 0.92)
+                    //.backgroundColor(gradient)
+                        gradient.edgesIgnoringSafeArea(.all)
                     
                     VStack {
                         Spacer()
@@ -84,9 +85,9 @@ struct ContentView: View {
                             showingAddAlarm.toggle()
                         }) {
                             Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 55))
+                                .font(.system(size: 58))
                                 .foregroundColor(.white)
-                                .shadow(radius: 20)
+                                .shadow(radius: 4)
                         }
                         .padding(.bottom)
                         .sheet(isPresented: $showingAddAlarm) {

@@ -19,7 +19,7 @@ struct AlarmRow: View {
         HStack {
             Text(alarm.time, style: .time) // Adjusted to use the time directly
                 .font(.system(size: 30, weight: .medium))
-                .foregroundColor(alarm.isActive ? .white : .gray)
+                .foregroundColor(alarm.isActive ? .white : .white.opacity(0.7))
             Spacer()
             Text(alarm.isAM ? "AM" : "PM")
                 .foregroundColor(.white)
@@ -32,7 +32,7 @@ struct AlarmRow: View {
                     AlarmManager.shared.alarms[index].isActive = newValue
                 }
             ))
-            .toggleStyle(SwitchToggleStyle(tint: Color("darkblue")))
+            .toggleStyle(SwitchToggleStyle(tint: .white.opacity(0.6)))
         }
         .padding(.horizontal)
     }
