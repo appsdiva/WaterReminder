@@ -12,20 +12,20 @@ class AlarmStorage {
     
     private let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("alarms.json")
     
-    func saveAlarms(_ reminders: [Reminder]) {
+    func saveAlarms(_ alarms: [Alarm]) {
         do {
-            let data = try JSONEncoder().encode(reminders)
+            let data = try JSONEncoder().encode(alarms)
             try data.write(to: filePath, options: .atomicWrite)
         } catch {
             print("Error saving alarms: \(error)")
         }
     }
     
-    func loadAlarms() -> [Reminder] {
+    func loadAlarms() -> [Alarm] {
         if FileManager.default.fileExists(atPath: filePath.path) {
             do {
                 let data = try Data(contentsOf: filePath)
-                return try JSONDecoder().decode([Reminder].self, from: data)
+                return try JSONDecoder().decode([Alarm].self, from: data)
             } catch {
                 print("Error loading alarms: \(error)")
                 return []

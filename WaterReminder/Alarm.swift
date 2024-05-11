@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Alarm: Identifiable, Codable {
+    var id = UUID()
+    //var time: String
+    var time: Date
+    var isAM: Bool
+    var isActive: Bool
+    var repeatDays: [Bool] = Array(repeating: false, count: 7)  // Sunday to Saturday
+}
+

@@ -77,12 +77,12 @@ class NotificationManager {
             }
         }
 
-func requestAuthorization() {
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-        if granted {
-            print("Notification permission granted.")
-        } else if let error = error {
-            print("Notification permission denied because: \(error.localizedDescription).")
-        }
-    }
-}
+//func requestAuthorization() {
+//    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+//        if granted {
+//            print("Notification permission granted.")
+//        } else if let error = error {
+//            print("Notification permission denied because: \(error.localizedDescription).")
+//        }
+//    }
+//}
