@@ -14,6 +14,7 @@
 		018C18FE2BEEAEA000EB7627 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18FD2BEEAEA000EB7627 /* Alarm.swift */; };
 		018C19002BEEBB6400EB7627 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18FF2BEEBB6400EB7627 /* AlarmManager.swift */; };
 		018C19022BEED1DD00EB7627 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C19012BEED1DD00EB7627 /* AddAlarmView.swift */; };
+		018C19042BEEF77700EB7627 /* SwipeToDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */; };
 		5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */; };
 		5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */; };
 		5B64B2092BD183E900B82D58 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64B2082BD183E900B82D58 /* Reminder.swift */; };
@@ -34,6 +35,7 @@
 		018C18FD2BEEAEA000EB7627 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		018C18FF2BEEBB6400EB7627 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		018C19012BEED1DD00EB7627 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
+		018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDeleteView.swift; sourceTree = "<group>"; };
 		5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleStyle.swift; sourceTree = "<group>"; };
 		5B0D1DA52BD1D64B0080D858 /* AlarmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStorage.swift; sourceTree = "<group>"; };
 		5B64B2082BD183E900B82D58 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
+				018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */,
 				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				018C18FD2BEEAEA000EB7627 /* Alarm.swift */,
@@ -189,6 +192,7 @@
 				018C19002BEEBB6400EB7627 /* AlarmManager.swift in Sources */,
 				5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */,
 				018C18FE2BEEAEA000EB7627 /* Alarm.swift in Sources */,
+				018C19042BEEF77700EB7627 /* SwipeToDeleteView.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
 				018C18FC2BEE939F00EB7627 /* VerticalEllipsisIcon.swift in Sources */,
 				5B64B20D2BD1891100B82D58 /* DateFormatter.swift in Sources */,

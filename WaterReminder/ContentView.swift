@@ -48,31 +48,28 @@ struct ContentView: View {
                         
                         // Clock at the top
                         ClockView()  // Ensure ClockView is correctly defined to show the current time
+                        Text("ALARMS")
+                            .foregroundStyle(.white)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
                         
                         // Alarms list
                         ScrollView {
                             VStack {
                                 ForEach(alarmManager.alarms) { alarm in
-                                    HStack {
-                                        AlarmRow(alarm: alarm)
-                                        
-                                        Button(action: {
-                                            if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
+                                    SwipeToDeleteView(alarm: alarm, onDelete: {
+                                        if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
+                                            withAnimation {
                                                 alarmManager.alarms.remove(at: index)
                                             }
-                                        }) {
-                                            Image(systemName: "trash")
-                                                .foregroundColor(.red)
                                         }
-                                    }
-                                    .padding(.horizontal)
-                                    .background(Color.white) // You can set any color or keep it transparent
-                                    .cornerRadius(10)
-                                    .shadow(radius: 2) // Optional for better UI
+                                    })
                                 }
                             }
                             .padding()
                         }
+
 
                        
                         Spacer()
@@ -92,7 +89,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle("Water Reminders")
+                //.navigationTitle("Water Reminders")
                 .navigationBarItems(trailing: Button(action: {
                                 // Action for the ellipsis button
                             }) {
@@ -185,3 +182,22 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+
+//                                ForEach(alarmManager.alarms) { alarm in
+//                                    HStack {
+//                                        AlarmRow(alarm: alarm)
+//
+//                                        Button(action: {
+//                                            if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
+//                                                alarmManager.alarms.remove(at: index)
+//                                            }
+//                                        }) {
+//                                            Image(systemName: "trash")
+//                                                .foregroundColor(.red)
+//                                        }
+//                                    }
+//                                    .padding(.horizontal)
+//                                    //.background(Color.white) // You can set any color or keep it transparent
+//                                    .cornerRadius(10)
+//                                    .shadow(radius: 2) // Optional for better UI
+//                                }
