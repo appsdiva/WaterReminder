@@ -15,40 +15,52 @@ struct ClockView: View {
     var body: some View {
         ZStack {
             // Clock face
-            Circle()
-                .stroke(lineWidth: 2)
-                .foregroundColor(Color.white.opacity(0.7))
+//            Circle()
+//                .stroke(lineWidth: 2)
+//                .foregroundColor(Color.white.opacity(0.7))
+//            
+            // Minute markers
+            ForEach(0..<60) { minute in
+                Rectangle()
+                    .fill(minute % 5 == 0 ? Color.white : Color.white.opacity(0.7)) // Longer and more opaque for every 5 minutes
+                    .frame(width: minute % 5 == 0 ? 3 : 1, height: minute % 5 == 0 ? 18 : 8) // Bigger markers for every 5 minutes
+                    .offset(y: -90) // Positioning at the edge of the clock face
+                    .rotationEffect(.degrees(Double(minute) * 6)) // Rotating the marker to the correct position
+            }
             
             // Hour hand
             Rectangle()
                 .fill(Color.white)
-                .frame(width: 3, height: 50)
-                .offset(y: -25)
+                .frame(width: 4, height: 55)
+                .offset(y: -25) // Start from the edge of the center circle
                 .rotationEffect(.degrees(hourAngle()))
             
             // Minute hand
             Rectangle()
                 .fill(Color.white)
-                .frame(width: 2, height: 70)
-                .offset(y: -35)
+                .frame(width: 1.5, height: 80)
+                .offset(y: -35) // Start from the edge of the center circle
                 .rotationEffect(.degrees(minuteAngle()))
             
             // Second hand
             Rectangle()
-                .fill(Color.red) // Typically the second hand is red
-                .frame(width: 1, height: 90)
-                .offset(y: -45)
+                .fill(Color.blue)
+                .frame(width: 1, height: 100)
+                .offset(y: -45) // Start from the edge of the center circle
                 .rotationEffect(.degrees(secondAngle()))
             
             // Center circle
             Circle()
-                .frame(width: 10, height: 10)
+                .frame(width: 8, height: 8)
                 .foregroundColor(.white)
+//                .stroke(Color.white, lineWidth: 1)
+//                .frame(width: 15, height: 15)
+                .shadow(radius: 10)
         }
         .onReceive(timer) { input in
             self.currentDate = input
         }
-        .frame(width: 200, height: 200) // Set the size of the clock face
+        .frame(width: 250, height: 250) // Set the size of the clock face
     }
     
     // Calculate rotation for the hour hand
@@ -74,4 +86,5 @@ struct ClockView: View {
 
 #Preview {
     ClockView()
+        .preferredColorScheme(.dark)
 }
