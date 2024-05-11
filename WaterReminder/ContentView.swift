@@ -48,7 +48,7 @@ struct ContentView: View {
                         
                         // Clock at the top
                         ClockView()  // Ensure ClockView is correctly defined to show the current time
-                        Text("ALARMS")
+                        Text("WATER REMINDERS")
                             .foregroundStyle(.white)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
