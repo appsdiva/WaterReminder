@@ -20,11 +20,11 @@ struct ContentView: View {
     //    @State private var repeatDays = Array(repeating: false, count: 7)
     //        let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
     
-    
+//    
 //    init() {
 //        _alarms = State(initialValue: AlarmStorage.shared.loadAlarms())
 //    }
-    
+//    
    
     
     
@@ -48,27 +48,33 @@ struct ContentView: View {
                         
                         // Clock at the top
                         ClockView()  // Ensure ClockView is correctly defined to show the current time
-                        Text("WATER REMINDERS")
+                        Text("DRINK WATER")
                             .foregroundStyle(.white)
-                            .fontWeight(.bold)
+                            .font(.system(size: 25, weight: .semibold))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                         
-                        // Alarms list
+                         //Alarms list
                         ScrollView {
-                            VStack {
-                                ForEach(alarmManager.alarms) { alarm in
-                                    SwipeToDeleteView(alarm: alarm, onDelete: {
-                                        if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
-                                            withAnimation {
-                                                alarmManager.alarms.remove(at: index)
-                                            }
+                                    VStack {
+                                        ForEach(alarmManager.alarms) { alarm in
+                                            SwipeToDeleteView(alarmManager: alarmManager, alarm: alarm, onDelete: {
+                                                deleteAlarm(alarm: alarm)
+                                            })
                                         }
-                                    })
+                                    }
+                                    .padding()
                                 }
-                            }
-                            .padding()
-                        }
+                        
+//                                        ScrollView {
+//                                            VStack(spacing: 15) {
+//                                                ForEach($alarmManager.alarms) { $alarm in
+//                                                    AlarmRow(alarm: $alarm)
+//                                                        .cornerRadius(20)
+//                                                        .padding(.horizontal, 30)
+//                                                }
+//                                            }
+//                                        }
 
 
                        
@@ -125,16 +131,7 @@ struct ContentView: View {
     //                                    }
     //                                }
     //                
-    //                Button("Add Reminder") {
-    //                    addReminder()
-    //                }
-    //                .padding()
-    //                .background(.black)
-    //                .fontWeight(.bold)
-    //                .foregroundColor(.white)
-    //                .cornerRadius(15)
-    //                .padding(.horizontal)
-    //                
+    
     //                ScrollView {
     //                    VStack(spacing: 15) {
     //                        ForEach($reminders) { $reminder in
@@ -158,6 +155,7 @@ struct ContentView: View {
         let isAM = Calendar.current.component(.hour, from: selectedDate) < 12
         let newAlarm = Alarm(time: selectedDate, isAM: isAM, isActive: true, repeatDays: [false, true, false, true, false, true, false])
         alarmManager.addAlarm(newAlarm)
+       
     }
 }
 

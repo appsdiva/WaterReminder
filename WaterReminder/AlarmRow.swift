@@ -10,6 +10,11 @@ import SwiftUI
 struct AlarmRow: View {
     var alarm: Alarm
     
+    // Explicit public initializer
+//        public init(alarm: Binding<Alarm>) {
+//            _alarm = alarm
+//        }
+    
     var body: some View {
         HStack {
             Text(alarm.time, style: .time) // Adjusted to use the time directly

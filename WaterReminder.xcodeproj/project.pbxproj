@@ -81,12 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
-				018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */,
-				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
-				018C18FD2BEEAEA000EB7627 /* Alarm.swift */,
-				018C18FF2BEEBB6400EB7627 /* AlarmManager.swift */,
+				018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */,
 				018C18F72BEE8A4500EB7627 /* AlarmRow.swift */,
+				018C18FF2BEEBB6400EB7627 /* AlarmManager.swift */,
+				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
+				018C18FD2BEEAEA000EB7627 /* Alarm.swift */,
 				018C18F92BEE8B2D00EB7627 /* ClockView.swift */,
 				018C18F52BEE7B8400EB7627 /* AddReminderView.swift */,
 				5B64B20A2BD1854200B82D58 /* ReminderView.swift */,

@@ -20,10 +20,10 @@ class AlarmManager: ObservableObject  {
     public init() {}
 
     func addAlarm(_ alarm: Alarm) {
-        //alarms.append(alarm)
-        DispatchQueue.main.async {
-               self.alarms.append(alarm)
-           }
+        alarms.append(alarm)
+//        DispatchQueue.main.async {
+//               self.alarms.append(alarm)
+//           }
         // Add any additional logic to manage alarms here
         // such as registering the alarm with iOS notifications
     }
