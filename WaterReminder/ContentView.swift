@@ -157,6 +157,14 @@ struct ContentView: View {
         alarmManager.addAlarm(newAlarm)
        
     }
+    
+    private func deleteAlarm(alarm: Alarm) {
+            withAnimation {
+                if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
+                    alarmManager.alarms.remove(at: index)
+                }
+            }
+        }
 }
 
 //    private func addReminder() {
