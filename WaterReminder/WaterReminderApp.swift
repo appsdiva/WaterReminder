@@ -21,13 +21,16 @@ struct WaterReminderApp: App {
 
 // AppDelegate to handle UIApplicationDelegate responsibilities,
 // such as requesting notification permissions.
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Asynchronously request notification permissions
-        DispatchQueue.main.async {
-            self.requestNotificationPermissions()
-        }
+//        DispatchQueue.main.async {
+//            self.requestNotificationPermissions()
+//        }
+//        return true
+        UNUserNotificationCenter.current().delegate = self
         return true
+        
     }
     
     private func requestNotificationPermissions() {
@@ -40,3 +43,4 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
     }
 }
+
