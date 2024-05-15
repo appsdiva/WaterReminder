@@ -48,5 +48,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             completionHandler([.banner, .sound])
         }
     
+    // Handle notification tap action
+       func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+           print("Notification received with identifier: \(response.notification.request.identifier)")
+           completionHandler()
+       }
+    
 }
 
