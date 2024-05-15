@@ -24,15 +24,12 @@ struct WaterReminderApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Asynchronously request notification permissions
-//        DispatchQueue.main.async {
-//            self.requestNotificationPermissions()
-//        }
-//        return true
-        UNUserNotificationCenter.current().delegate = self
+        DispatchQueue.main.async {
+            self.requestNotificationPermissions()
+        }
         return true
         
     }
-    
     private func requestNotificationPermissions() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
@@ -42,12 +39,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             }
         }
     }
-    
+
     // Handle notification when the app is in the foreground
         func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             completionHandler([.banner, .sound])
         }
-    
+
     // Handle notification tap action
        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
            print("Notification received with identifier: \(response.notification.request.identifier)")

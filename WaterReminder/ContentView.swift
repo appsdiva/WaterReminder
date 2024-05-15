@@ -11,15 +11,15 @@ struct ContentView: View {
     @State private var selectedTime = Date()
     //@StateObject var alarmManager = AlarmManager.shared
     @ObservedObject var alarmManager = AlarmManager.shared  // Use shared instance of AlarmManager
-    //@State private var alarms: [Alarm] = []
+    @State private var alarms: [Alarm] = []
     @State private var showingAddAlarm = false
     @State private var repeatDays = Array(repeating: false, count: 7)
     let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
   
-//    init() {
-//        _alarms = State(initialValue: AlarmStorage.shared.loadAlarms())
-//    }
-//    
+    init() {
+        _alarms = State(initialValue: AlarmStorage.shared.loadAlarms())
+    }
+    
    
     
     
@@ -146,7 +146,7 @@ struct ContentView: View {
     //        }
     //    }
     
-    func createAndAddAlarm() {
+    private func createAndAddAlarm() {
         let selectedDate = Date() // Example: Get date from a date picker or current date/time
         let isAM = Calendar.current.component(.hour, from: selectedDate) < 12
         let newAlarm = Alarm(time: selectedDate, isAM: isAM, isActive: true, repeatDays: [false, true, false, true, false, true, false])
@@ -187,22 +187,3 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-
-//                                ForEach(alarmManager.alarms) { alarm in
-//                                    HStack {
-//                                        AlarmRow(alarm: alarm)
-//
-//                                        Button(action: {
-//                                            if let index = alarmManager.alarms.firstIndex(where: { $0.id == alarm.id }) {
-//                                                alarmManager.alarms.remove(at: index)
-//                                            }
-//                                        }) {
-//                                            Image(systemName: "trash")
-//                                                .foregroundColor(.red)
-//                                        }
-//                                    }
-//                                    .padding(.horizontal)
-//                                    //.background(Color.white) // You can set any color or keep it transparent
-//                                    .cornerRadius(10)
-//                                    .shadow(radius: 2) // Optional for better UI
-//                                }

@@ -10,7 +10,7 @@ import SwiftUI
 struct AlarmRow: View {
     var alarm: Alarm
     
-    // Explicit public initializer
+//     Explicit public initializer
 //        public init(alarm: Binding<Alarm>) {
 //            _alarm = alarm
 //        }

@@ -14,9 +14,9 @@ struct SwipeToDeleteView: View {
     @State private var offset = CGSize.zero
     @State private var isVisible = true  // State to control visibility
     
-    //    public init(alarm: Binding<Alarm>) {
-    //        _alarm = alarm
-    //    }
+//        public init(alarm: Binding<Alarm>) {
+//            _alarm = alarm
+//        }
     
     var body: some View {
             if isVisible {

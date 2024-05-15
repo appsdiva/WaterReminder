@@ -43,12 +43,12 @@ struct AddAlarmView: View {
     }
 }
 
-struct AddAlarmView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Creating a mock instance for preview purposes
-        AddAlarmView(alarmManager: AlarmManager())
-    }
-}
+//struct AddAlarmView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Creating a mock instance for preview purposes
+//        AddAlarmView(alarmManager: AlarmManager())
+//    }
+//}
 
 //#Preview {
 //    AddAlarmView()

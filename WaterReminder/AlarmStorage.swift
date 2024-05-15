@@ -37,13 +37,4 @@ class AlarmStorage {
     }
 }
     
-//    func loadAlarms() -> [Reminder] {
-//        do {
-//            let data = try Data(contentsOf: filePath)
-//            return try JSONDecoder().decode([Reminder].self, from: data)
-//        } catch {
-//            print("Error loading alarms: \(error)")
-//            return []
-//        }
-//    }
-//}
+
