@@ -8,8 +8,8 @@
 import Foundation
 
 struct Alarm: Identifiable, Codable {
-    var id = UUID()
-    //var time: String
+    //var id = UUID()
+    var id: UUID = UUID()
     var time: Date
     var isAM: Bool
     var isActive: Bool

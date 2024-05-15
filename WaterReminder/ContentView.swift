@@ -11,16 +11,11 @@ struct ContentView: View {
     @State private var selectedTime = Date()
     //@StateObject var alarmManager = AlarmManager.shared
     @ObservedObject var alarmManager = AlarmManager.shared  // Use shared instance of AlarmManager
+    //@State private var alarms: [Alarm] = []
     @State private var showingAddAlarm = false
     @State private var repeatDays = Array(repeating: false, count: 7)
     let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
-    //    @State private var selectedTime = Date()
-    //    @State private var reminders: [Reminder] = []
-    //    @State private var showingAddReminder = false
-    //    @State private var repeatDays = Array(repeating: false, count: 7)
-    //        let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
-    
-//    
+  
 //    init() {
 //        _alarms = State(initialValue: AlarmStorage.shared.loadAlarms())
 //    }
