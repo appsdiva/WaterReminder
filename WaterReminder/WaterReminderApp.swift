@@ -7,10 +7,13 @@
 
 import SwiftUI
 import UserNotifications
+import UIKit
 
 @main
 struct WaterReminderApp: App {
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     
     var body: some Scene {
         WindowGroup {
@@ -50,6 +53,5 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
            print("Notification received with identifier: \(response.notification.request.identifier)")
            completionHandler()
        }
-    
 }
 

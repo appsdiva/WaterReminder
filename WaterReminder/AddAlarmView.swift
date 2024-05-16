@@ -12,27 +12,39 @@ struct AddAlarmView: View {
     @ObservedObject var alarmManager: AlarmManager
     @State private var selectedTime = Date()
     @State private var repeatDays = Array(repeating: false, count: 7)
-    let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
+    let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     var body: some View {
-        NavigationView {
-            Form {
-                DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                    .datePickerStyle(WheelDatePickerStyle())
-                
-                Section(header: Text("Repeat")) {
-                    ForEach(0..<daysOfWeek.count, id: \.self) { index in
-                        Toggle(daysOfWeek[index], isOn: $repeatDays[index])
+        ZStack {
+            // Setting the background for the entire view
+            Color(red: 0.53, green: 0.81, blue: 0.92)
+                .edgesIgnoringSafeArea(.all)  // Make sure it covers the entire screen
+
+            NavigationView {
+                Form {
+                    DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                        .datePickerStyle(WheelDatePickerStyle())
+                    
+                    Section(header: Text("Repeat")) {
+                        ForEach(0..<daysOfWeek.count, id: \.self) { index in
+                            Toggle(daysOfWeek[index], isOn: $repeatDays[index])
+                        }
+                        .foregroundColor(.black)
                     }
                 }
+                .background(Color(red: 0.53, green: 0.81, blue: 0.92))
+                .scrollContentBackground(.hidden)
+                .navigationBarTitle("Add New Alarm", displayMode: .inline)
+                .navigationBarItems(leading: Button("Cancel") {
+                    presentationMode.wrappedValue.dismiss()
+                }, trailing: Button("Save") {
+                    saveAlarm()
+                    presentationMode.wrappedValue.dismiss()
+                })
             }
-            .navigationBarTitle("Add New Alarm", displayMode: .inline)
-            .navigationBarItems(leading: Button("Cancel") {
-                presentationMode.wrappedValue.dismiss()
-            }, trailing: Button("Save") {
-                saveAlarm()
-                presentationMode.wrappedValue.dismiss()
-            })
+            .foregroundColor(.white)
+            .font(.title3)
+            .fontWeight(.medium)
         }
     }
 
@@ -43,12 +55,14 @@ struct AddAlarmView: View {
     }
 }
 
-//struct AddAlarmView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        // Creating a mock instance for preview purposes
-//        AddAlarmView(alarmManager: AlarmManager())
-//    }
-//}
+
+
+struct AddAlarmView_Previews: PreviewProvider {
+    static var previews: some View {
+        // Creating a mock instance for preview purposes
+        AddAlarmView(alarmManager: AlarmManager())
+    }
+}
 
 //#Preview {
 //    AddAlarmView()

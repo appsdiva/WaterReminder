@@ -16,8 +16,8 @@ class AlarmManager: ObservableObject  {
 
     //var alarms: [Alarm] = []
 
-    private init() {} // Private initializer to ensure singleton usage.
-    //public init() {}
+    //private init() {} // Private initializer to ensure singleton usage.
+    public init() {}
 
     func addAlarm(_ alarm: Alarm) {
         alarms.append(alarm)
@@ -53,21 +53,6 @@ class AlarmManager: ObservableObject  {
                 scheduleWeeklyNotification(for: alarm, dayOfWeek: index + 1, content: content)
             }
         }
-
-//        let targetDate = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-//
-//        let request = UNNotificationRequest(identifier: alarm.id.uuidString, content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request) { error in
-//            if let error = error {
-//                print("Error scheduling notification: \(error)")
-//            } else {
-//                print("Notification scheduled!")
-//                //self.vibratePhone() // Optionally ensure vibration at the point of scheduling
-//            }
-//        }
-//    }
         
         var targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alarm.time)
                 targetDate.second = 0  // Ensure seconds are zeroed out
@@ -88,21 +73,6 @@ class AlarmManager: ObservableObject  {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.id.uuidString])
     }
 }
-
-//private func scheduleWeeklyNotification(for alarm: Alarm, dayOfWeek: Int, content: UNMutableNotificationContent) {
-//    var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
-//    dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
-//
-//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//
-//    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//    UNUserNotificationCenter.current().add(request) { error in
-//        if let error = error {
-//            print("Error scheduling notification: \(error)")
-//        }
-//    }
-//}
 
 private func scheduleWeeklyNotification(for alarm: Alarm, dayOfWeek: Int, content: UNMutableNotificationContent) {
         var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
