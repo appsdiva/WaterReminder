@@ -15,6 +15,7 @@ struct AddAlarmView: View {
     let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
+    let gradient2 = LinearGradient(gradient: Gradient(colors: [Color("middleblue"), Color("darkblue")]), startPoint: .top, endPoint: .bottom)
 
     var body: some View {
             NavigationView {
@@ -25,12 +26,13 @@ struct AddAlarmView: View {
                     Section(header: Text("Repeat")) {
                         ForEach(0..<daysOfWeek.count, id: \.self) { index in
                             Toggle(daysOfWeek[index], isOn: $repeatDays[index])
-                                .toggleStyle(ColoredToggleStyle(onColor: Color("darkblue"), offColor: .gray, thumbColor: .white))
+                                .toggleStyle(CustomToggleStyle())
+//                                .toggleStyle(ColoredToggleStyle(onColor: Color("darkblue"), offColor: .gray, thumbColor: .white))
                         }
                         .foregroundColor(.black)
                     }
                 }
-                .background(gradient)
+                //.background(gradient)
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Add New Alarm", displayMode: .inline)
                 .navigationBarItems(leading: Button("Cancel") {
@@ -42,7 +44,7 @@ struct AddAlarmView: View {
                 }.customFont(size: 25)
                 )
             }
-            .foregroundColor(.white)
+            .foregroundColor(Color("middleblue"))
             .font(.title3)
             .fontWeight(.medium)
         }
@@ -60,7 +62,7 @@ struct CustomFont: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.system(size: size, weight: .bold, design: .default))
-            .foregroundColor(.white)  // Customize the color if needed
+            .foregroundColor(Color("middleblue"))
     }
 }
 

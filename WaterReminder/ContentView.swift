@@ -24,9 +24,6 @@ struct ContentView: View {
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
     let gradient2 = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .top, endPoint: .bottom)
     let alarmblack = LinearGradient(gradient: Gradient(colors: [Color.blue, Color("darkblue")]), startPoint: .top, endPoint: .bottom)
-    
-    let coral = Color(red: 255/255, green: 127/255, blue: 80/255)
-    let offWhite = Color(red: 245/255, green: 245/255, blue: 245/255)
     let darkGray = Color(red: 40/255, green: 40/255, blue: 40/255)
     
     var body: some View {
