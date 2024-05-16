@@ -8,11 +8,137 @@
 import SwiftUI
 
 struct SettingsView: View {
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("lightblue"))]
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                Section {
+//                    NavigationLink(destination: ContactUsView()) {
+//                        HStack {
+//                            Image(systemName: "envelope")
+//                            Text("Contact us")
+//                        }
+//                    }
+                    NavigationLink(destination: NotificationSettingsView()) {
+                        HStack {
+                            Image(systemName: "heart")
+                            Text("Rate the app")
+                        }
+                    }
+                    NavigationLink(destination: RateAppView()) {
+                        HStack {
+                            Image(systemName: "heart")
+                            Text("Rate the app")
+                        }
+                    }
+                    NavigationLink(destination: ShareAppView()) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share the app")
+                        }
+                    }
+//                    NavigationLink(destination: AboutUsView()) {
+//                        HStack {
+//                            Image(systemName: "globe")
+//                            Text("About us")
+//                        }
+//                    }
+                    NavigationLink(destination: SupportUsView()) {
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                            Text("Give us a tip")
+                        }
+                    }
+                }
+                Section {
+                    NavigationLink(destination: TermsOfUseView()) {
+                        HStack {
+                            Image(systemName: "doc.text")
+                            Text("Terms of Use")
+                        }
+                    }
+                    NavigationLink(destination: PrivacyPolicyView()) {
+                        HStack {
+                            Image(systemName: "shield")
+                            Text("Privacy Policy")
+                        }
+                    }
+                }
+                Section {
+                    Text("Water Reminder - Version 1.0")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                }
+            }
+            .navigationBarTitle("Settings")
+            //.foregroundColor(Color("middleblue"))
+            //.background(gradient)
+            .scrollContentBackground(.hidden)
+        }
     }
 }
 
-#Preview {
-    SettingsView()
+struct ContactUsView: View {
+    var body: some View {
+        Text("Contact Us")
+    }
 }
+
+struct NotificationSettingsView: View {
+    var body: some View {
+        Text("Contact Us")
+    }
+}
+
+struct RateAppView: View {
+    var body: some View {
+        Text("Rate the App")
+    }
+}
+
+struct ShareAppView: View {
+    var body: some View {
+        Text("Share the App")
+    }
+}
+
+struct AboutUsView: View {
+    var body: some View {
+        Text("About Us")
+    }
+}
+
+struct SupportUsView: View {
+    var body: some View {
+        Text("Support Us")
+    }
+}
+
+struct TermsOfUseView: View {
+    var body: some View {
+        Text("Terms of Use")
+    }
+}
+
+struct PrivacyPolicyView: View {
+    var body: some View {
+        Text("Privacy Policy")
+    }
+}
+
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}
+
+
+//#Preview {
+//    SettingsView()
+//}

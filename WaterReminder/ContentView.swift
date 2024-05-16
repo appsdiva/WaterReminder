@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showingAddAlarm = false
     @State private var repeatDays = Array(repeating: false, count: 7)
     let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
+    @State private var showSettings = false
   
     init() {
         _alarms = State(initialValue: AlarmStorage.shared.loadAlarms())
@@ -77,9 +78,14 @@ struct ContentView: View {
                 //.navigationTitle("Water Reminders")
                 .navigationBarItems(trailing: Button(action: {
                                 // Action for the ellipsis button
+                    self.showSettings.toggle()
                             }) {
                                 VerticalEllipsisIcon()
                             })
+                .popover(isPresented: $showSettings, arrowEdge: .top) {
+                               SettingsView()
+                                   //.frame(width: 300, height: 400) // Adjust the size to fit your design
+                           }
             }
         }
     
