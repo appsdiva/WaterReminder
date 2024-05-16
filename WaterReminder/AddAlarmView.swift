@@ -13,13 +13,10 @@ struct AddAlarmView: View {
     @State private var selectedTime = Date()
     @State private var repeatDays = Array(repeating: false, count: 7)
     let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
+    let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
 
     var body: some View {
-        ZStack {
-            // Setting the background for the entire view
-            Color(red: 0.53, green: 0.81, blue: 0.92)
-                .edgesIgnoringSafeArea(.all)  // Make sure it covers the entire screen
-
             NavigationView {
                 Form {
                     DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
@@ -32,26 +29,43 @@ struct AddAlarmView: View {
                         .foregroundColor(.black)
                     }
                 }
-                .background(Color(red: 0.53, green: 0.81, blue: 0.92))
+                .background(gradient)
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Add New Alarm", displayMode: .inline)
                 .navigationBarItems(leading: Button("Cancel") {
                     presentationMode.wrappedValue.dismiss()
-                }, trailing: Button("Save") {
+                }.customFont(size: 25),
+                    trailing: Button("Save") {
                     saveAlarm()
                     presentationMode.wrappedValue.dismiss()
-                })
+                }.customFont(size: 25)
+                )
             }
             .foregroundColor(.white)
             .font(.title3)
             .fontWeight(.medium)
         }
-    }
 
     private func saveAlarm() {
         let isAM = Calendar.current.component(.hour, from: selectedTime) < 12
         let newAlarm = Alarm(time: selectedTime, isAM: isAM, isActive: true, repeatDays: repeatDays)
         alarmManager.addAlarm(newAlarm)
+    }
+}
+
+struct CustomFont: ViewModifier {
+    var size: CGFloat
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: size, weight: .bold, design: .default))
+            .foregroundColor(.white)  // Customize the color if needed
+    }
+}
+
+extension View {
+    func customFont(size: CGFloat) -> some View {
+        self.modifier(CustomFont(size: size))
     }
 }
 
