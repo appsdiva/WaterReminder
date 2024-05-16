@@ -32,26 +32,6 @@ struct AlarmRow: View {
         .padding(.horizontal)
     }
 }
-//struct AlarmRow: View {
-//    var time: String
-//    var isAM: Bool
-//    var isActive: Bool
-//    
-//    var body: some View {
-//        HStack {
-//            Text(time)
-//                .font(.system(size: 35, weight: .semibold))
-//                .foregroundColor(isActive ? .white : .gray)
-//            Spacer()
-//            Text(isAM ? "AM" : "PM")
-//                .foregroundColor(.white)
-//                .opacity(0.7)
-//            Toggle("", isOn: .constant(isActive))
-//                .toggleStyle(SwitchToggleStyle(tint: Color("darkblue")))
-//        }
-//        .padding(.horizontal)
-//    }
-//}
 
 
 //#Preview {

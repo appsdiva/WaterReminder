@@ -25,6 +25,7 @@ struct AddAlarmView: View {
                     Section(header: Text("Repeat")) {
                         ForEach(0..<daysOfWeek.count, id: \.self) { index in
                             Toggle(daysOfWeek[index], isOn: $repeatDays[index])
+                                .toggleStyle(ColoredToggleStyle(onColor: Color("darkblue"), offColor: .gray, thumbColor: .white))
                         }
                         .foregroundColor(.black)
                     }

@@ -13,6 +13,7 @@ struct ColoredToggleStyle: ToggleStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         HStack {
+            configuration.label
             Spacer()
             ZStack(alignment: configuration.isOn ? .trailing : .leading) {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
@@ -24,10 +25,10 @@ struct ColoredToggleStyle: ToggleStyle {
                     .padding(.all, 1)
             }
             .onTapGesture { configuration.isOn.toggle() }
-            Spacer()
+            //Spacer()
         }
-        .frame(width: 51, height: 31)
-        .animation(Animation.linear(duration: 0.2), value: configuration.isOn)
+        //.frame(width: 51, height: 31)
+        //.animation(Animation.linear(duration: 0.2), value: configuration.isOn)
     }
 }
 
