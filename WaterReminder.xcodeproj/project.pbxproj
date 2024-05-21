@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014407132BFD352E006BDAFE /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014407122BFD352E006BDAFE /* ShareSheet.swift */; };
 		018C18F62BEE7B8400EB7627 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F52BEE7B8400EB7627 /* AddReminderView.swift */; };
 		018C18F82BEE8A4500EB7627 /* AlarmRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F72BEE8A4500EB7627 /* AlarmRow.swift */; };
 		018C18FA2BEE8B2D00EB7627 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C18F92BEE8B2D00EB7627 /* ClockView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		014407122BFD352E006BDAFE /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		018C18F52BEE7B8400EB7627 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
 		018C18F72BEE8A4500EB7627 /* AlarmRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRow.swift; sourceTree = "<group>"; };
 		018C18F92BEE8B2D00EB7627 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
 				01C100042BF66CAA00767250 /* SettingsView.swift */,
+				014407122BFD352E006BDAFE /* ShareSheet.swift */,
 				01C100022BF6287D00767250 /* CustomToggleStyle.swift */,
 				018C18F72BEE8A4500EB7627 /* AlarmRow.swift */,
 				018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */,
@@ -203,6 +206,7 @@
 				018C19042BEEF77700EB7627 /* SwipeToDeleteView.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
 				018C18FC2BEE939F00EB7627 /* VerticalEllipsisIcon.swift in Sources */,
+				014407132BFD352E006BDAFE /* ShareSheet.swift in Sources */,
 				5B64B20D2BD1891100B82D58 /* DateFormatter.swift in Sources */,
 				5B0D1DA62BD1D64B0080D858 /* AlarmStorage.swift in Sources */,
 			);

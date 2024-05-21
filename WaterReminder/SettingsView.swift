@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var showingShareSheet = false
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
+    let appURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")! // Replace "YOUR_APP_ID" with actual App Store ID
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("lightblue"))]
@@ -36,12 +38,18 @@ struct SettingsView: View {
 //                            Text("Rate the app")
 //                        }
 //                    }
-                    NavigationLink(destination: ShareAppView()) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("Share the app")
-                        }
-                    }
+                    Button(action: {
+                                        showingShareSheet = true
+                                    }) {
+                                        HStack {
+                                            Image(systemName: "square.and.arrow.up")
+                                            Text("Share the app")
+                                        }
+                                        .foregroundColor(.black)
+                                    }
+                                    .sheet(isPresented: $showingShareSheet) {
+                                        ShareSheet(items: [appURL])
+                                    }
 //                    NavigationLink(destination: AboutUsView()) {
 //                        HStack {
 //                            Image(systemName: "globe")
