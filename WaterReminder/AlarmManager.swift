@@ -75,21 +75,21 @@ class AlarmManager: ObservableObject  {
 }
 
 private func scheduleWeeklyNotification(for alarm: Alarm, dayOfWeek: Int, content: UNMutableNotificationContent) {
-        var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
-        dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
-        dateComponents.second = 0  // Ensure seconds are zeroed out
+    var dateComponents = DateComponents()
+    dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
+    dateComponents.hour = Calendar.current.component(.hour, from: alarm.time)
+    dateComponents.minute = Calendar.current.component(.minute, from: alarm.time)
+    dateComponents.second = 0  // Ensuring seconds are zeroed out
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling weekly notification: \(error)")
-            } else {
-                print("Weekly notification scheduled!")
-            }
+    UNUserNotificationCenter.current().add(request) { error in
+        if let error = error {
+            print("Error scheduling weekly notification: \(error)")
+        } else {
+            print("Weekly notification scheduled for \(dayOfWeek)!")
         }
     }
-
+}
 
