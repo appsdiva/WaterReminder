@@ -26,16 +26,16 @@ struct SettingsView: View {
 //                    }
                     NavigationLink(destination: NotificationSettingsView()) {
                         HStack {
-                            Image(systemName: "heart")
-                            Text("Rate the app")
+                            Image(systemName: "gear")
+                            Text("Notification Settings")
                         }
                     }
-                    NavigationLink(destination: RateAppView()) {
-                        HStack {
-                            Image(systemName: "heart")
-                            Text("Rate the app")
-                        }
-                    }
+//                    NavigationLink(destination: RateAppView()) {
+//                        HStack {
+//                            Image(systemName: "heart")
+//                            Text("Rate the app")
+//                        }
+//                    }
                     NavigationLink(destination: ShareAppView()) {
                         HStack {
                             Image(systemName: "square.and.arrow.up")
