@@ -50,10 +50,39 @@ struct AddAlarmView: View {
         }
 
     private func saveAlarm() {
-        let isAM = Calendar.current.component(.hour, from: selectedTime) < 12
-        let newAlarm = Alarm(time: selectedTime, isAM: isAM, isActive: true, repeatDays: repeatDays)
-        alarmManager.addAlarm(newAlarm)
-    }
+            let isAM = Calendar.current.component(.hour, from: selectedTime) < 12
+            let newAlarm = Alarm(time: selectedTime, isAM: isAM, isActive: true, repeatDays: repeatDays) // Use repeatDays directly
+
+            // Use repeatDays directly to access the actual Boolean array
+            for (index, shouldRepeat) in repeatDays.enumerated() {
+                if shouldRepeat {
+                    let dayOfWeek = index + 1 // Adjust based on how your days of the week are indexed
+                    alarmManager.scheduleWeeklyNotification(for: newAlarm, dayOfWeek: dayOfWeek, content: createNotificationContent()) // Access the method directly
+                }
+            }
+        }
+    
+//    private func saveAlarm() {
+//        let isAM = Calendar.current.component(.hour, from: selectedTime) < 12
+//        let newAlarm = Alarm(time: selectedTime, isAM: isAM, isActive: true, repeatDays: repeatDays)
+//
+//        // You can directly iterate over repeatDays since it's a local @State array
+//        for (index, shouldRepeat) in repeatDays.enumerated() {
+//            if shouldRepeat {
+//                let dayOfWeek = index + 1  // Ensure this maps correctly to your days representation
+//                alarmManager.scheduleWeeklyNotification(for: newAlarm, dayOfWeek: dayOfWeek, content: createNotificationContent())
+//            }
+//        }
+//    }
+
+}
+
+func createNotificationContent() -> UNMutableNotificationContent {
+    let content = UNMutableNotificationContent()
+    content.title = "Time to Drink Water"
+    content.body = "Stay hydrated! It's time to drink some water."
+    content.sound = UNNotificationSound.default
+    return content
 }
 
 struct CustomFont: ViewModifier {
@@ -74,12 +103,12 @@ extension View {
 
 
 
-struct AddAlarmView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Creating a mock instance for preview purposes
-        AddAlarmView(alarmManager: AlarmManager())
-    }
-}
+//struct AddAlarmView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Creating a mock instance for preview purposes
+//        AddAlarmView(alarmManager: AlarmManager())
+//    }
+//}
 
 //#Preview {
 //    AddAlarmView()
