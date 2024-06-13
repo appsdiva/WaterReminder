@@ -127,19 +127,6 @@ struct SupportUsView: View {
     }
 }
 
-struct TermsOfUseView: View {
-    var body: some View {
-        Text("Terms of Use")
-    }
-}
-
-struct PrivacyPolicyView: View {
-    var body: some View {
-        Text("Privacy Policy")
-    }
-}
-
-
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
