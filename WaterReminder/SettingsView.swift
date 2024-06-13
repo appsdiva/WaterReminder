@@ -26,12 +26,12 @@ struct SettingsView: View {
 //                            Text("Contact us")
 //                        }
 //                    }
-                    NavigationLink(destination: NotificationSettingsView()) {
-                        HStack {
-                            Image(systemName: "gear")
-                            Text("Notification Settings")
-                        }
-                    }
+//                    NavigationLink(destination: NotificationSettingsView()) {
+//                        HStack {
+//                            Image(systemName: "gear")
+//                            Text("Notification Settings")
+//                        }
+//                    }
 //                    NavigationLink(destination: RateAppView()) {
 //                        HStack {
 //                            Image(systemName: "heart")

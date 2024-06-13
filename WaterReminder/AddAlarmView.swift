@@ -17,11 +17,12 @@ struct AddAlarmView: View {
     var body: some View {
         NavigationView {
             Form {
-                DatePicker("Select Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                DatePicker(" ", selection: $selectedTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
                 Section(header: Text("Repeat")) {
                     ForEach(0..<daysOfWeek.count, id: \.self) { index in
                         Toggle(daysOfWeek[index], isOn: $repeatDays[index])
+                            .toggleStyle(CustomToggleStyle())
                     }
                     .foregroundColor(.black)
                 }
@@ -73,5 +74,5 @@ extension View {
 //}
 
 //#Preview {
-//    AddAlarmView()
+//    AddAlarmView(alarmManager: AlarmManager())
 //}
