@@ -10,82 +10,97 @@ import AudioToolbox
 import Combine
 
 class AlarmManager: ObservableObject {
-
+    
     @Published var alarms: [Alarm] = []
     static let shared = AlarmManager() // Singleton instance if needed.
-
-    private init() {} // Private initializer to ensure singleton usage.
-
+    
+    // Private initializer to ensure singleton usage.
+    //private init() {}
+    private init() {
+        loadAlarms()
+    }
+    
     func addAlarm(_ alarm: Alarm) {
         alarms.append(alarm)
+        saveAlarms()
         scheduleNotification(for: alarm)
     }
-
-    func removeAlarm(at index: Int) {
-        DispatchQueue.main.async {
-            self.alarms.remove(at: index)
+    
+    func removeAlarm(_ alarm: Alarm) {
+        if let index = alarms.firstIndex(where: { $0.id == alarm.id }) {
+            alarms.remove(at: index)
+            saveAlarms()
+            cancelNotification(for: alarm)
         }
     }
-
-    func toggleIsActive(for alarmId: UUID) {
-        if let index = alarms.firstIndex(where: { $0.id == alarmId }) {
-            alarms[index].isActive.toggle()
+        
+        func loadAlarms() {
+            alarms = AlarmStorage.shared.loadAlarms()
         }
-    }
-
-    func vibratePhone() {
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-    }
-
-    func scheduleNotification(for alarm: Alarm) {
-        // Notification scheduling logic
-        let content = UNMutableNotificationContent()
-        content.title = "Time to Drink Water"
-        content.body = "Stay hydrated! It's time to drink some water."
-        content.sound = UNNotificationSound.default
-
-        // Schedule notification for each active day
-        for (index, shouldRepeat) in alarm.repeatDays.enumerated() {
-            if shouldRepeat {
-                scheduleWeeklyNotification(for: alarm, dayOfWeek: index + 1, content: content)
+        
+        func saveAlarms() {
+            AlarmStorage.shared.saveAlarms(alarms)
+        }
+        
+        func toggleIsActive(for alarmId: UUID) {
+            if let index = alarms.firstIndex(where: { $0.id == alarmId }) {
+                alarms[index].isActive.toggle()
             }
         }
-
-        var targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alarm.time)
-        targetDate.second = 0  // Ensure seconds are zeroed out
-        let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-
-        let request = UNNotificationRequest(identifier: alarm.id.uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            } else {
-                print("Notification scheduled!")
+        
+        func vibratePhone() {
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+        
+        func scheduleNotification(for alarm: Alarm) {
+            // Notification scheduling logic
+            let content = UNMutableNotificationContent()
+            content.title = "Time to Drink Water"
+            content.body = "Stay hydrated! It's time to drink some water."
+            content.sound = UNNotificationSound.default
+            
+            // Schedule notification for each active day
+            for (index, shouldRepeat) in alarm.repeatDays.enumerated() {
+                if shouldRepeat {
+                    scheduleWeeklyNotification(for: alarm, dayOfWeek: index + 1, content: content)
+                }
+            }
+            
+            var targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alarm.time)
+            targetDate.second = 0  // Ensure seconds are zeroed out
+            let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: alarm.id.uuidString, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                } else {
+                    print("Notification scheduled!")
+                }
+            }
+        }
+        
+        func cancelNotification(for alarm: Alarm) {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.id.uuidString])
+        }
+        
+        func scheduleWeeklyNotification(for alarm: Alarm, dayOfWeek: Int, content: UNMutableNotificationContent) {
+            var dateComponents = DateComponents()
+            dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
+            dateComponents.hour = Calendar.current.component(.hour, from: alarm.time)
+            dateComponents.minute = Calendar.current.component(.minute, from: alarm.time)
+            dateComponents.second = 0  // Ensuring seconds are zeroed out
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling weekly notification: \(error)")
+                } else {
+                    print("Weekly notification scheduled for \(dayOfWeek)!")
+                }
             }
         }
     }
-
-    func cancelNotification(for alarm: Alarm) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.id.uuidString])
-    }
-
-    func scheduleWeeklyNotification(for alarm: Alarm, dayOfWeek: Int, content: UNMutableNotificationContent) {
-        var dateComponents = DateComponents()
-        dateComponents.weekday = dayOfWeek  // Sunday = 1 through Saturday = 7
-        dateComponents.hour = Calendar.current.component(.hour, from: alarm.time)
-        dateComponents.minute = Calendar.current.component(.minute, from: alarm.time)
-        dateComponents.second = 0  // Ensuring seconds are zeroed out
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling weekly notification: \(error)")
-            } else {
-                print("Weekly notification scheduled for \(dayOfWeek)!")
-            }
-        }
-    }
-}
