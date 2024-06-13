@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var storeManager: StoreManager
     @State private var showingShareSheet = false
     let gradient = LinearGradient(gradient: Gradient(colors: [Color("darkblue"), Color("lightblue")]), startPoint: .bottomTrailing, endPoint: .topLeading)
     let appURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")! // Replace "YOUR_APP_ID" with actual App Store ID
     
-    init() {
+    init(storeManager: StoreManager) {
+        self.storeManager = storeManager
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("lightblue"))]
     }
     
@@ -56,7 +58,7 @@ struct SettingsView: View {
 //                            Text("About us")
 //                        }
 //                    }
-                    NavigationLink(destination: SupportUsView()) {
+                    NavigationLink(destination: TipView(storeManager: storeManager)) {
                         HStack {
                             Image(systemName: "questionmark.circle")
                             Text("Give us a tip")
@@ -129,7 +131,8 @@ struct SupportUsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        let storeManager = StoreManager()
+        SettingsView(storeManager: storeManager)
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var alarmManager = AlarmManager.shared // Use shared instance of AlarmManager
+    @ObservedObject var storeManager = StoreManager()
     @State private var showingAddAlarm = false
     @State private var showSettings = false
     
@@ -57,7 +58,7 @@ struct ContentView: View {
                 VerticalEllipsisIcon()
             })
             .popover(isPresented: $showSettings, arrowEdge: .top) {
-                SettingsView()
+                SettingsView(storeManager: storeManager)
             }
         }
     }

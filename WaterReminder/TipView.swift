@@ -5,12 +5,14 @@
 //  Created by Stacey Smith on 6/13/24.
 //
 import SwiftUI
+import StoreKit
 
 struct TipView: View {
     @ObservedObject var storeManager: StoreManager  
     // Assumes you have a StoreManager class handling transactions
     
     var body: some View {
+        
         VStack {
             Image("HighFive")  // Make sure to add this image to your assets
                 .resizable()
