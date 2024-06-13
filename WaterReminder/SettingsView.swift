@@ -20,12 +20,12 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section {
-//                    NavigationLink(destination: ContactUsView()) {
-//                        HStack {
-//                            Image(systemName: "envelope")
-//                            Text("Contact us")
-//                        }
-//                    }
+                    NavigationLink(destination: ContactUsView()) {
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text("Contact us")
+                        }
+                    }
 //                    NavigationLink(destination: NotificationSettingsView()) {
 //                        HStack {
 //                            Image(systemName: "gear")
@@ -99,7 +99,7 @@ struct ContactUsView: View {
 
 struct NotificationSettingsView: View {
     var body: some View {
-        Text("Contact Us")
+        Text("Notifications settings")
     }
 }
 

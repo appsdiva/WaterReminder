@@ -18,6 +18,7 @@
 		018C19042BEEF77700EB7627 /* SwipeToDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */; };
 		01B4FB5B2C1B9C3400BCA899 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4FB5A2C1B9C3400BCA899 /* PrivacyPolicyView.swift */; };
 		01B4FB5D2C1B9E4700BCA899 /* TermsofUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4FB5C2C1B9E4700BCA899 /* TermsofUseView.swift */; };
+		01B4FB5F2C1BA1D100BCA899 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4FB5E2C1BA1D100BCA899 /* TipView.swift */; };
 		01C100032BF6287D00767250 /* CustomToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C100022BF6287D00767250 /* CustomToggleStyle.swift */; };
 		01C100052BF66CAA00767250 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C100042BF66CAA00767250 /* SettingsView.swift */; };
 		5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */; };
@@ -44,6 +45,7 @@
 		018C19032BEEF77700EB7627 /* SwipeToDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDeleteView.swift; sourceTree = "<group>"; };
 		01B4FB5A2C1B9C3400BCA899 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		01B4FB5C2C1B9E4700BCA899 /* TermsofUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsofUseView.swift; sourceTree = "<group>"; };
+		01B4FB5E2C1BA1D100BCA899 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		01C100022BF6287D00767250 /* CustomToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyle.swift; sourceTree = "<group>"; };
 		01C100042BF66CAA00767250 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleStyle.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
 				01C100042BF66CAA00767250 /* SettingsView.swift */,
+				01B4FB5E2C1BA1D100BCA899 /* TipView.swift */,
 				01B4FB5A2C1B9C3400BCA899 /* PrivacyPolicyView.swift */,
 				01B4FB5C2C1B9E4700BCA899 /* TermsofUseView.swift */,
 				014407122BFD352E006BDAFE /* ShareSheet.swift */,
@@ -210,6 +213,7 @@
 				018C19002BEEBB6400EB7627 /* AlarmManager.swift in Sources */,
 				01B4FB5D2C1B9E4700BCA899 /* TermsofUseView.swift in Sources */,
 				5B0D1DA42BD1C2270080D858 /* ColoredToggleStyle.swift in Sources */,
+				01B4FB5F2C1BA1D100BCA899 /* TipView.swift in Sources */,
 				018C18FE2BEEAEA000EB7627 /* Alarm.swift in Sources */,
 				018C19042BEEF77700EB7627 /* SwipeToDeleteView.swift in Sources */,
 				5BB80C0A2BAB7F3B007E8C81 /* WaterReminderApp.swift in Sources */,
