@@ -97,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				5BB80C092BAB7F3B007E8C81 /* WaterReminderApp.swift */,
-				01B4FB622C1BB2B000BCA899 /* Extensions.swift */,
 				5BB80C0B2BAB7F3B007E8C81 /* ContentView.swift */,
 				018C19012BEED1DD00EB7627 /* AddAlarmView.swift */,
 				01C100042BF66CAA00767250 /* SettingsView.swift */,
@@ -117,6 +116,7 @@
 				018C18FB2BEE939F00EB7627 /* VerticalEllipsisIcon.swift */,
 				018C18F52BEE7B8400EB7627 /* AddReminderView.swift */,
 				5B64B20A2BD1854200B82D58 /* ReminderView.swift */,
+				01B4FB622C1BB2B000BCA899 /* Extensions.swift */,
 				5B64B20E2BD18D1300B82D58 /* NotificationManager.swift */,
 				5B0D1DA32BD1C2270080D858 /* ColoredToggleStyle.swift */,
 				5B64B2082BD183E900B82D58 /* Reminder.swift */,

@@ -24,7 +24,7 @@ struct ContentView: View {
                     ClockView()
                     Text("DRINK WATER")
                         .foregroundStyle(.white)
-                        .font(.system(size: 25, weight: .semibold))
+                        .font(.system(size: 24, weight: .semibold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     ScrollView {

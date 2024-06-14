@@ -13,7 +13,7 @@ struct AlarmRow: View {
     var body: some View {
         HStack {
             Text(alarm.time, style: .time) // Adjusted to use the time directly
-                .font(.system(size: 30, weight: .medium))
+                .font(.system(size: 28, weight: .medium))
                 .foregroundColor(alarm.isActive ? .white : .white.opacity(0.7))
             Spacer()
             Text(alarm.isAM ? "AM" : "PM")

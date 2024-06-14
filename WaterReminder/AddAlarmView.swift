@@ -24,7 +24,7 @@ struct AddAlarmView: View {
                         Toggle(daysOfWeek[index], isOn: $repeatDays[index])
                             .toggleStyle(CustomToggleStyle())
                     }
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("middleblue"))
                 }
             }
             .navigationBarTitle("Add New Alarm", displayMode: .inline)
@@ -37,7 +37,8 @@ struct AddAlarmView: View {
             }.customFont(size: 25)
             )
         }
-        .foregroundColor(Color("middleblue"))
+        //.foregroundColor(Color("middleblue"))
+        .foregroundColor(.black)
         .font(.title3)
         .fontWeight(.medium)
     }
