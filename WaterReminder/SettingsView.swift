@@ -15,7 +15,7 @@ struct SettingsView: View {
     
     init(storeManager: StoreManager) {
         self.storeManager = storeManager
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("lightblue"))]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.white)]
     }
     
     var body: some View {
@@ -47,7 +47,7 @@ struct SettingsView: View {
                                             Image(systemName: "square.and.arrow.up")
                                             Text("Share the app")
                                         }
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color.primary)
                                     }
                                     .sheet(isPresented: $showingShareSheet) {
                                         ShareSheet(items: [appURL])
@@ -86,8 +86,8 @@ struct SettingsView: View {
                 }
             }
             .navigationBarTitle("Settings")
-            //.foregroundColor(Color("middleblue"))
-            //.background(gradient)
+            .foregroundColor(Color.primary)
+            .background(gradient)
             .scrollContentBackground(.hidden)
         }
     }
@@ -111,11 +111,11 @@ struct RateAppView: View {
     }
 }
 
-struct ShareAppView: View {
-    var body: some View {
-        Text("Share the App")
-    }
-}
+//struct ShareAppView: View {
+//    var body: some View {
+//        Text("Share the App")
+//    }
+//}
 
 struct AboutUsView: View {
     var body: some View {

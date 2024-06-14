@@ -38,7 +38,6 @@ struct AddAlarmView: View {
             )
         }
         //.foregroundColor(Color("middleblue"))
-        .foregroundColor(.black)
         .font(.title3)
         .fontWeight(.medium)
     }
